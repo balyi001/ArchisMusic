@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #121212;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Estilos del Header Simplificado --- */
+
+.premium-header {
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-container h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.premium-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.premium-link {
+    color: #B3B3B3;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.premium-link:hover {
+    color: #FFFFFF;
+}
+
+.divider {
+    color: #B3B3B3;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.login-button {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 500px;
+    padding: 10px 25px;
+    font-weight: 700;
+    transition: transform 0.1s;
+}
+
+.login-button:hover {
+    /* CORRECCIÓN: Mantenemos el color del texto y el fondo mientras aplicamos la transformación */
+    transform: scale(1.05);
+    background-color: #F0F0F0;
+    color: #000000;
+}
+
+/* --- Estilos del Formulario --- */
+
+.employment-main {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    background-color: #181818;
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.form-container h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #B3B3B3;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #404040;
+    background-color: #282828;
+    color: #FFFFFF;
+    font-family: inherit;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #ffffff;
+}
+
+/* Caja de Adjuntar Archivo */
+.file-upload-box {
+    border: 2px dashed #404040;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #282828;
+    transition: border-color 0.2s;
+}
+
+.file-upload-box:hover {
+    border-color: #ffffff;
+}
+
+.file-upload-box p {
+    color: #B3B3B3;
+    font-size: 12px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 500px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: transform 0.1s;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    background-color: #979797;
+}
+
+.employment-footer {
+    text-align: center;
+    padding: 20px;
+    color: #B3B3B3;
+    font-size: 12px;
+}
+
+/* Responsividad */
+@media (max-width: 650px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-container h2 {
+        font-size: 24px;
+    }
+}
+
+/* --- Media Query para Dispositivos Móviles (<= 480px) --- */
+@media (max-width: 480px) {
+    
+    /* 1. Ocultar el input checkbox */
+    .menu-toggle {
+        /* Lo ocultamos completamente para que el usuario solo interactúe con el ícono */
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* 2. Estilizar la etiqueta como ícono de hamburguesa */
+    .hamburger-icon {
+        display: block; /* Mostrar solo en móvil */
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+        color: #FFFFFF;
+        align-self: center; /* Centrar verticalmente en el header */
+    }
+
+    /* Dibujamos el ícono de las tres líneas usando el pseudo-elemento content */
+    .hamburger-icon::before {
+        content: '☰'; 
+        font-size: 30px;
+        line-height: 0.8;
+    }
+    
+    /* 3. Estilos del menú de navegación por defecto (oculto) */
+    .premium-nav {
+        display: none; /* OCULTAR el menú normal en móvil */
+        position: absolute;
+        top: 80px; /* Colocarlo justo debajo de la altura del header */
+        right: 0;
+        background-color: #000000;
+        width: 100%;
+        /* El menú se apilará verticalmente */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* El selector ~ (hermano general) muestra el .premium-nav cuando el .menu-toggle está :checked */
+    .menu-toggle:checked ~ .premium-nav {
+        display: flex; /* Mostrar el menú */
+    }
+
+    /* 5. Ajustar el layout del header en móvil */
+    .premium-header {
+        /* El logo y el ícono de hamburguesa se separan */
+        justify-content: space-between; 
+        padding: 0 20px;
+    }
+    
+    /* Ajustes internos para el menú desplegado */
+    .premium-link {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .login-button {
+        width: 80%; 
+        max-width: 250px;
+    }
+
+    .divider {
+        display: none; /* Ocultar el separador | en móvil */
+    }
+}
+
+/* Regla para ocultar el ícono de hamburguesa y asegurar la visibilidad de la navegación normal en pantallas grandes */
+@media (min-width: 481px) {
+    .menu-toggle,
+    .hamburger-icon {
+        display: none;
+    }
+    /* Aseguramos que la navegación se muestre en escritorio, sobreescribiendo el `display: none` de la regla móvil */
+    .premium-nav {
+        display: flex;
+    }
+}

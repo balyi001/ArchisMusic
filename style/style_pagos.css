@@ -1,0 +1,261 @@
+/* Estilos generales del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* --- Estilos del Header Simplificado --- */
+
+.premium-header {
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-container h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.premium-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.premium-link {
+    color: #B3B3B3;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.premium-link:hover {
+    color: #FFFFFF;
+}
+
+.divider {
+    color: #B3B3B3;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.login-button {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 500px;
+    padding: 10px 25px;
+    font-weight: 700;
+    transition: transform 0.1s;
+}
+
+.login-button:hover {
+    /* CORRECCIÓN: Mantenemos el color del texto y el fondo mientras aplicamos la transformación */
+    transform: scale(1.05);
+    background-color: #F0F0F0;
+    color: #000000;
+}
+
+/* Contenedor principal del formulario de pago */
+.pago-contenedor {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    /* Limita el ancho del formulario */
+}
+
+/* Título */
+.pago-contenedor h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Agrupación de campos (label + input) */
+.campo-grupo {
+    margin-bottom: 15px;
+}
+
+/* Etiquetas */
+.campo-grupo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Campos de entrada de texto */
+.formulario-pago input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Asegura que el padding no añada ancho extra */
+    transition: border-color 0.3s;
+}
+
+.formulario-pago input[type="text"]:focus {
+    border-color: #007bff;
+    /* Resalta el borde al enfocar */
+    outline: none;
+}
+
+/* Fila para agrupar Fecha de Vencimiento y CVV */
+.fila {
+    display: flex;
+    gap: 15px;
+    /* Espacio entre los dos campos pequeños */
+}
+
+/* Ajuste de ancho para los campos dentro de la fila */
+.fila .campo-grupo {
+    flex: 1;
+    /* Hace que ambos campos compartan el espacio por igual */
+}
+
+/* Botón de Pagar */
+.boton-pagar {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.boton-pagar:hover {
+    background-color: #218838;
+    /* Color un poco más oscuro al pasar el ratón */
+}
+
+.boton-pagar:active {
+    transform: translateY(1px);
+    /* Efecto de "clic" */
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .pago-contenedor {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .fila {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    /* 1. Ocultar el input checkbox */
+    .menu-toggle {
+        /* Lo ocultamos completamente para que el usuario solo interactúe con el ícono */
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* 2. Estilizar la etiqueta como ícono de hamburguesa */
+    .hamburger-icon {
+        display: block; /* Mostrar solo en móvil */
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+        color: #FFFFFF;
+        align-self: center; /* Centrar verticalmente en el header */
+    }
+
+    /* Dibujamos el ícono de las tres líneas usando el pseudo-elemento content */
+    .hamburger-icon::before {
+        content: '☰'; 
+        font-size: 30px;
+        line-height: 0.8;
+    }
+    
+    /* 3. Estilos del menú de navegación por defecto (oculto) */
+    .premium-nav {
+        display: none; /* OCULTAR el menú normal en móvil */
+        position: absolute;
+        top: 80px; /* Colocarlo justo debajo de la altura del header */
+        right: 0;
+        background-color: #000000;
+        width: 100%;
+        /* El menú se apilará verticalmente */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* El selector ~ (hermano general) muestra el .premium-nav cuando el .menu-toggle está :checked */
+    .menu-toggle:checked ~ .premium-nav {
+        display: flex; /* Mostrar el menú */
+    }
+
+    /* 5. Ajustar el layout del header en móvil */
+    .premium-header {
+        /* El logo y el ícono de hamburguesa se separan */
+        justify-content: space-between; 
+        padding: 0 20px;
+    }
+    
+    /* Ajustes internos para el menú desplegado */
+    .premium-link {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .login-button {
+        width: 80%; 
+        max-width: 250px;
+    }
+
+    .divider {
+        display: none; /* Ocultar el separador | en móvil */
+    }
+
+}
+/* Regla para ocultar el ícono de hamburguesa y asegurar la visibilidad de la navegación normal en pantallas grandes */
+@media (min-width: 481px) {
+    .menu-toggle,
+    .hamburger-icon {
+        display: none;
+    }
+    /* Aseguramos que la navegación se muestre en escritorio, sobreescribiendo el `display: none` de la regla móvil */
+    .premium-nav {
+        display: flex;
+    }
+}

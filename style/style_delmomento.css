@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+}
+
+/* --- Estilos del Header Simplificado --- */
+
+.premium-header {
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-container h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.premium-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.premium-link {
+    color: #B3B3B3;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.premium-link:hover {
+    color: #FFFFFF;
+}
+
+.divider {
+    color: #B3B3B3;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.login-button {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 500px;
+    padding: 10px 25px;
+    font-weight: 700;
+    transition: transform 0.1s;
+}
+
+.login-button:hover {
+    /* CORRECCIÓN: Mantenemos el color del texto y el fondo mientras aplicamos la transformación */
+    transform: scale(1.05);
+    background-color: #F0F0F0;
+    color: #000000;
+}
+
+/* --- Layout Principal --- */
+.records-main {
+    padding: 40px 10%;
+}
+
+.records-section {
+    margin-bottom: 60px;
+}
+
+.records-section h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #282828;
+    padding-bottom: 10px;
+}
+
+.records-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+/* --- Tarjetas --- */
+.record-card {
+    background-color: #181818;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.record-card:hover {
+    background-color: #282828;
+}
+
+.img-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #333;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Estilo para Artistas (Circular) */
+.artist-style .img-placeholder {
+    border-radius: 50%;
+}
+
+.record-card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-card p {
+    color: #B3B3B3;
+    font-size: 14px;
+}
+
+/* --- Footer --- */
+.records-footer {
+    text-align: center;
+    padding: 40px;
+    color: #555;
+    font-size: 12px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .records-main {
+        padding: 20px 5%;
+    }
+
+    .records-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+}
+
+    /* --- Media Query para Dispositivos Móviles (<= 480px) --- */
+@media (max-width: 480px) {
+    .records-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* 1. Ocultar el input checkbox */
+    .menu-toggle {
+        /* Lo ocultamos completamente para que el usuario solo interactúe con el ícono */
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* 2. Estilizar la etiqueta como ícono de hamburguesa */
+    .hamburger-icon {
+        display: block; /* Mostrar solo en móvil */
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+        color: #FFFFFF;
+        align-self: center; /* Centrar verticalmente en el header */
+    }
+
+    /* Dibujamos el ícono de las tres líneas usando el pseudo-elemento content */
+    .hamburger-icon::before {
+        content: '☰'; 
+        font-size: 30px;
+        line-height: 0.8;
+    }
+    
+    /* 3. Estilos del menú de navegación por defecto (oculto) */
+    .premium-nav {
+        display: none; /* OCULTAR el menú normal en móvil */
+        position: absolute;
+        top: 80px; /* Colocarlo justo debajo de la altura del header */
+        right: 0;
+        background-color: #000000;
+        width: 100%;
+        /* El menú se apilará verticalmente */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* El selector ~ (hermano general) muestra el .premium-nav cuando el .menu-toggle está :checked */
+    .menu-toggle:checked ~ .premium-nav {
+        display: flex; /* Mostrar el menú */
+    }
+
+    /* 5. Ajustar el layout del header en móvil */
+    .premium-header {
+        /* El logo y el ícono de hamburguesa se separan */
+        justify-content: space-between; 
+        padding: 0 20px;
+    }
+    
+    /* Ajustes internos para el menú desplegado */
+    .premium-link {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .login-button {
+        width: 80%; 
+        max-width: 250px;
+    }
+
+    .divider {
+        display: none; /* Ocultar el separador | en móvil */
+    }
+}

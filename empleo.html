@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabaja con Nosotros - Archis</title>
+    <link rel="stylesheet" href="./style/style_empleo.css">
+    <link rel="shortcut icon" href="./img/Fav-Icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="premium-header">
+        <div class="logo-container">
+            <a href="./index.html">
+            <img class="header-logo" src="./img/Logo-Archis.png" alt="Logo Archis"></a>
+            <h1>Archis Music</h1>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-controls="premium-nav">
+        <label for="menu-toggle" class="hamburger-icon" aria-label="Abrir menú"></label>
+        <div class="premium-nav">
+            <a href="./premium.html" class="premium-link">Premium</a>
+            <a href="./terminos.html" class="premium-link">Ayuda</a>
+            <a href="./descarga.html" class="premium-link">Descargar</a>
+            <span class="divider">|</span> 
+            <a href="./signup.html" class="premium-link">Registrarse</a>
+            <a href="./login.html"><button class="premium-link login-button">Iniciar sesión</button></a>
+        </div>
+
+    </header>
+
+    <main class="employment-main">
+        <section class="form-container">
+            <h2>Únete al equipo de Archis</h2>
+            <p class="subtitle">Completa el formulario para postularte a nuestras vacantes abiertas.</p>
+
+            <form class="job-form">
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Posición de interés</label>
+                    <select id="position">
+                        <option value="dev">Desarrollador Software</option>
+                        <option value="design">Diseñador UI/UX</option>
+                        <option value="marketing">Especialista en Marketing</option>
+                        <option value="support">Soporte Técnico</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cv">Adjuntar Currículum (PDF)</label>
+                    <div class="file-upload-box">
+                        <input type="file" id="cv" accept=".pdf">
+                        <p>Haz clic para subir o arrastra un archivo</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">¿Por qué quieres trabajar con nosotros?</label>
+                    <textarea id="comments" rows="4" placeholder="Cuéntanos un poco sobre ti..."></textarea>
+                </div>
+
+                <button type="button" class="submit-btn">Enviar Postulación</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="employment-footer">
+        <p>&copy; 2025 Archis Music Recruitment Division.</p>
+    </footer>
+
+</body>
+</html>
