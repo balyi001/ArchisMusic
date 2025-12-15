@@ -20,8 +20,10 @@
                 <input type="text" placeholder="¿Qué quieres reproducir?">
             </div>
         </div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-controls="premium-nav">
+            <label for="menu-toggle" class="hamburger-icon" aria-label="Abrir menú"></label>
 
-        <div class="header-right">
+        <div class="header-right premium-nav">
             <a href="./premium.html" class="header-link">Premium</a>
             <a href="./terminos.html" class="header-link">Ayuda</a>
             <a href="./descarga.html" class="header-link">Descargar</a>
@@ -38,7 +40,9 @@
 
             <div class="nav-header">
                 <h4>Tu biblioteca</h4>
+                <a href="./delmomento.html">
                 <button class="add-button">+</button>
+                </a>
             </div>
 
             <div class="nav-content-scroll">
@@ -66,7 +70,17 @@
                 <a href="./terminos.html">Cookies</a>
                 <br>
 
-                <button class="language-button">🌐 Español de Latinoamérica</button>
+                <details>
+                <summary class="language-button">🌐 Español de Latinoamérica</summary>
+                <div class="language-options">
+                    <button>English</button>
+                    <button>Español de España</button>
+                    <button>Français</button>
+                    <button>Deutsch</button>
+                    <button>Italiano</button>
+                    <button>Português do Brasil</button>
+                </details>
+                
             </section>
 
         </aside>

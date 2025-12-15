@@ -153,6 +153,13 @@ body {
     font-size: 12px;
 }
 
+/* Estilos para el Checkbox Hack (Deshabilitado en Desktop) */
+.menu-toggle,
+.hamburger-icon {
+    display: none; /* Ocultar estos elementos por defecto en escritorio */
+}
+
+
 /* Responsividad */
 @media (max-width: 768px) {
     .records-main {

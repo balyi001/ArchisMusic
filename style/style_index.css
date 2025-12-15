@@ -412,6 +412,13 @@ li a:hover {
     margin-left: 50px;
 }
 
+/* Estilos para el Checkbox Hack (Deshabilitado en Desktop) */
+.menu-toggle,
+.hamburger-icon {
+    display: none; /* Ocultar estos elementos por defecto en escritorio */
+}
+
+
 /* Responsividad */
 @media (max-width: 900px) {
     .container {
@@ -437,8 +444,80 @@ li a:hover {
         margin-right: 0;
     }
 }
-
+    /* --- Media Query para Dispositivos Móviles (<= 480px) --- */
 @media (max-width: 480px) {
+
+    /* 1. Ocultar el input checkbox */
+    .menu-toggle {
+        /* Lo ocultamos completamente para que el usuario solo interactúe con el ícono */
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* 2. Estilizar la etiqueta como ícono de hamburguesa */
+    .hamburger-icon {
+        display: block; /* Mostrar solo en móvil */
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+        color: #FFFFFF;
+        align-self: center; /* Centrar verticalmente en el header */
+    }
+
+    /* Dibujamos el ícono de las tres líneas usando el pseudo-elemento content */
+    .hamburger-icon::before {
+        content: '☰'; 
+        font-size: 30px;
+        line-height: 0.8;
+    }
+    
+    /* 3. Estilos del menú de navegación por defecto (oculto) */
+    .premium-nav {
+        display: none; /* OCULTAR el menú normal en móvil */
+        position: absolute;
+        top: 80px; /* Colocarlo justo debajo de la altura del header */
+        right: 0;
+        background-color: #000000;
+        width: 100%;
+        /* El menú se apilará verticalmente */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* El selector ~ (hermano general) muestra el .premium-nav cuando el .menu-toggle está :checked */
+    .menu-toggle:checked ~ .premium-nav {
+        display: flex; /* Mostrar el menú */
+    }
+
+    /* 5. Ajustar el layout del header en móvil */
+    .premium-header {
+        /* El logo y el ícono de hamburguesa se separan */
+        justify-content: space-between; 
+        padding: 0 20px;
+    }
+    
+    /* Ajustes internos para el menú desplegado */
+    .premium-link {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .login-button {
+        width: 80%; 
+        max-width: 250px;
+    }
+
+    .divider {
+        display: none; /* Ocultar el separador | en móvil */
+    }
+
     .card-item {
         min-width: 140px;
         width: 140px;
@@ -450,5 +529,17 @@ li a:hover {
 
     .logo {
         width: 40px;
+    }
+}
+
+/* Regla para ocultar el ícono de hamburguesa y asegurar la visibilidad de la navegación normal en pantallas grandes */
+@media (min-width: 481px) {
+    .menu-toggle,
+    .hamburger-icon {
+        display: none;
+    }
+    /* Aseguramos que la navegación se muestre en escritorio, sobreescribiendo el `display: none` de la regla móvil */
+    .premium-nav {
+        display: flex;
     }
 }
